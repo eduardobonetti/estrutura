@@ -15,7 +15,7 @@
           "_navigations": ["./src/navigations"],
           "_organisms": ["./src/components/organisms"],
           "_providers": ["./src/providers"],
-          "_scenes": ["./src/scenes"],
+          "_pages": ["./src/pages"],
           "_services": ["./src/services"],
           "_styles": ["./src/styles"],
           "_utils": ["./src/utils"],

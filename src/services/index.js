@@ -1,4 +1,4 @@
 import * as UtilsService from './utils-service';
-import * as PedidoService  from './pedido-service';
+import * as UserService  from './user-service';
 
-export default {UtilsService};
+export {UtilsService, UserService};

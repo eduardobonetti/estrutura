@@ -14,7 +14,7 @@
       "_organisms/*": ["components/organisms/*"],
       "_providers": ["providers"],
       "_providers/*": ["providers/*"],
-      "_scenes/*": ["scenes/*"],
+      "_pages/*": ["pages/*"],
       "_services": ["services"],
       "_services/*": ["services/*"],
       "_styles": ["styles"],

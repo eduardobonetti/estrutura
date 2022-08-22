@@ -1,7 +1,46 @@
-import React from 'react';
-import ListaPedido from "./pages/lista-pedido";
+import React, {useEffect, useState} from 'react';
 
-export default () =>{
-//Aqui deve conter o componente de rotas do app (https://reactnavigation.org/), deixei a lista apenas para o app não exibir uma tela branca :)
-  return <ListaPedido />
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {NavigationContainer} from '@react-navigation/native';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+
+import Login from '_pages/login';
+import {useSelector} from 'react-redux';
+import {UserService} from '_services';
+import Home from '_pages/home';
+import Configuracoes from '_pages/configuracoes';
+import {Store} from './store';
+
+const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
+
+export default function App() {
+  const BottomTabNavigator = () => {
+    return (
+      <Tab.Navigator>
+        <Tab.Screen name="Home" component={Home} />
+        <Tab.Screen
+          name="Configuracoes"
+          component={Configuracoes}
+          options={{title: 'Configurações'}}
+        />
+      </Tab.Navigator>
+    );
+  };
+  return (
+    <NavigationContainer>
+      <Stack.Navigator
+        initialRouteName={
+          Store.getState()[UserService.reducerKey]?.token
+            ? 'BottomTabNavigator'
+            : 'Login'
+        }>
+        <Stack.Screen component={Login} name="Login" />
+        <Stack.Screen
+          component={BottomTabNavigator}
+          name="BottomTabNavigator"
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 }
